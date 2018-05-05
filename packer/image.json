@@ -1,0 +1,49 @@
+{
+    "variables": {
+        "digitalocean_api_key": "",
+        "size": "s-1vcpu-1gb",
+        "datacenter": "nyc1"
+    },
+    "builders": [
+        {
+            "type": "digitalocean",
+            "api_token": "{{user `digital_ocean_api_key`}}",
+            "size": "{{user `size`}}",
+            "region": "{{user `datacenter`}}",
+            "image": "centos-7-x64",
+            "ssh_username": "root",
+            "droplet_name": "consul-nomad",
+            "snapshot_name": "consul-nomad",
+            "monitoring": true
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "./file/consul.service",
+            "destination": "/tmp/consul.service"
+        },
+        {
+            "type": "file",
+            "source": "./file/consul_flags",
+            "destination": "/tmp/consul_flags"
+        },
+        {
+            "type": "file",
+            "source": "./file/nomad.service",
+            "destination": "/tmp/nomad.service"
+        },
+        {
+            "type": "shell",
+            "script": "./script/basic.sh"
+        },
+        {
+            "type": "shell",
+            "script": "./script/consul.sh"
+        },
+        {
+            "type": "shell",
+            "script": "./script/nomad.sh"
+        }
+    ]
+}

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+terraform init
 terraform apply \
     -var "digitalocean_api_key=$DIGITALOCEAN_API_TOKEN" \
-    -var "domains=$DOMAINS" \
+    -var "domain=$DOMAIN" \
     -var "ssh_keys=$SSH_KEYS" \
     -var "datacenter=$DATACENTER" \
     -var "image=$IMAGE" \

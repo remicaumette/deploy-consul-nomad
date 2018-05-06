@@ -2,8 +2,8 @@ variable "digitalocean_api_key" {
     type = "string"
 }
 
-variable "domains" {
-    type = "list"
+variable "domain" {
+    type = "string"
 }
 
 variable "ssh_keys" {

@@ -1,0 +1,11 @@
+[Unit]
+Description=Traefik agent
+After=network.target consul.service
+
+[Service]
+ExecStart=/usr/local/bin/traefik -c /etc/traefik/config.toml
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

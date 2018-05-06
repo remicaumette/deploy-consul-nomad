@@ -1,8 +1,7 @@
 # Deploy Consul and Nomad on Digital Ocean
 
 Deploy a Consul and Nomad cluster on Digital Ocean in minutes with terraform and packer.
-This image also includes the digital ocean monitoring agent, traefik as reverse proxy and
-a nginx container with auth for proxying the consul and nomad dashboard.
+This image also includes the digital ocean monitoring agent and traefik as reverse proxy.
 
 ### How?
 
@@ -10,11 +9,11 @@ Configure your environment:
 
 ```bash
 export DIGITALOCEAN_API_TOKEN=""
-export DOMAINS="[\"example.com\"]"
+export DOMAIN="example.com"
 export SSH_KEYS="[\"key\"]"
 export DATACENTER="nyc1"
 export SIZE="s-1vcpu-1gb"
-export COUNT="2"
+export COUNT="3"
 ```
 
 Build your image:

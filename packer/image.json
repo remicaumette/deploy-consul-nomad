@@ -25,13 +25,13 @@
         },
         {
             "type": "file",
-            "source": "./file/consul_flags",
-            "destination": "/tmp/consul_flags"
+            "source": "./file/nomad.service",
+            "destination": "/tmp/nomad.service"
         },
         {
             "type": "file",
-            "source": "./file/nomad.service",
-            "destination": "/tmp/nomad.service"
+            "source": "./file/traefik.service",
+            "destination": "/tmp/traefik.service"
         },
         {
             "type": "shell",
@@ -44,6 +44,10 @@
         {
             "type": "shell",
             "script": "./script/nomad.sh"
+        },
+        {
+            "type": "shell",
+            "script": "./script/traefik.sh"
         }
     ]
 }
